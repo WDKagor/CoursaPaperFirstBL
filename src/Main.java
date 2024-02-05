@@ -2,7 +2,6 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-
         Employee[] listOfEmployees = new Employee[10];
         {
             listOfEmployees[0] = new Employee("Кравченко", "Анатолий", "Сергеевич", "1", 48500);
@@ -17,6 +16,7 @@ public class Main {
             listOfEmployees[9] = new Employee("Потапова", "Татьяна", "Андреевна", "1", 48500);
         }
         printAllEmployee(listOfEmployees);
+        System.out.println(" ");
         int resultSalary = culculateSalary(listOfEmployees);
         System.out.println("Фонд заработной платы: " + resultSalary + " руб.");
         int minSalary = minSalary(listOfEmployees);
@@ -25,6 +25,9 @@ public class Main {
         System.out.println("Максимальная заработная плата: " + maxSalary + " руб.");
         int avarageSalary = avarageSalary(listOfEmployees);
         System.out.println("Средняя заработная плата: " + avarageSalary + " руб.");
+        System.out.println(" ");
+        System.out.println("Список сотрудников:");
+        printNameOfEmployees(listOfEmployees);
     }
 
     private static void printAllEmployee(Employee[] listOfEmployees) {
@@ -63,6 +66,16 @@ public class Main {
     private static int avarageSalary(Employee[] listOfEmployees) {
         int avarageSalary = culculateSalary(listOfEmployees)/listOfEmployees.length;
         return avarageSalary;
+    }
+
+    private static void printNameOfEmployees(Employee[] listOfEmployees) {
+        for (int i = 0; i < listOfEmployees.length; i++) {
+            String lastName = listOfEmployees[i].getLastName();
+            String firstName = listOfEmployees[i].getFirstName();
+            String middleName = listOfEmployees[i].getFirstName();
+            int id = listOfEmployees[i].getId();
+            System.out.println(id + ". " + lastName + " " + firstName + " " + middleName);
+        }
     }
 
 
